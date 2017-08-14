@@ -1,0 +1,8 @@
+<view class="container">
+    <video
+        id="video"
+        src="{{url}}"
+        controls
+        binderror="handleError"
+    ></video>
+</view>

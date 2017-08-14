@@ -1,0 +1,13 @@
+.container {
+    height: 100vh;
+    background-color: #f7f7f7;
+}
+
+.input {
+    background-color: white;
+}
+
+textarea{
+    width: 700rpx;
+    margin: 10px auto 10px auto;
+}

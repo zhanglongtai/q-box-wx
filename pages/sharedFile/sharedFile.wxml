@@ -1,0 +1,62 @@
+<!--sharedFile.wxml-->
+<import src="commentItem.wxml"/>
+<view class="info">
+    <view class="header-container">
+        <view class="icon">
+            <image style="width:40px;height:40px;" src="/asset/ic_share_48px_green500.svg"/>
+        </view>
+        <view class="name">{{name}}</view>
+    </view>
+</view>
+<view class="tab">
+    <view wx:if="{{comment}}" class="selected-tab">评论</view>
+    <view wx:else class="default-tab" catchtap="changeToComment">评论</view>
+    <view wx:if="{{settings}}" class="selected-tab">设置</view>
+    <view wx:else class="default-tab" catchtap="changeToSettings">设置</view>
+</view>
+<block wx:if="{{comment}}">
+    <view class="loading" wx:if="{{commentList.isFetching}}">
+        <icon type="waiting" size="60" color="blue" style="margin: 0 0 30px 0"/>
+        <text>正在获取评论列表</text>
+    </view>
+    <block wx:else>
+        <block wx:if="{{commentList.fetchSuccess}}">
+            <block wx:if="{{commentList.list.length !== 0}}">
+                <view class="comment-item" wx:for="{{commentList.list}}" wx:key="{{username}}">
+                    <template is="commentItem" data="{{item}}"/>
+                </view>
+            </block>
+            <button
+                type="primary"
+                style="width: 90%;margin: 40px auto 10px auto;"
+                catchtap="addComment"
+            >添加评论</button>
+        </block>
+        <!--error page-->
+        <view class="error-page" wx:else>
+            <view class="error-info">
+                <icon type="warn" size="{{60}}" color="red" style="margin: 0 0 20px 0"/>
+                <text>获取失败</text>
+            </view>
+            <button
+                type="primary"
+                catchtap="fetchCommentList"
+                style="width: 90%;"
+            >点击重试</button>
+        </view>
+    </block>
+</block>
+<block wx:else>
+    <view class="picker-part">
+        <view class="picker-title">选择有效期限</view>
+        <picker bindchange="pickerTimeChange" value="{{timeIndex}}" range="{{timeRange}}">
+            <view class="picker">当前选择: {{timeRange[timeIndex]}}</view>
+        </picker>
+    </view>
+    <view class="picker-part">
+        <view class="picker-title">选择下载限制次数</view>
+        <picker bindchange="pickerDownloadChange" value="{{downloadIndex}}" range="{{downloadRange}}">
+            <view class="picker">当前选择: {{downloadRange[downloadIndex]}}</view>
+        </picker>
+    </view>
+</block>

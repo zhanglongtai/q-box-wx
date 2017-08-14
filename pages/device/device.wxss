@@ -1,0 +1,120 @@
+/**device.wxss**/
+.title {
+    width: 750rpx;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.container {
+    width: 750rpx;
+    min-width: 350px;
+    height: 100px;
+    border-top: 1px solid #e7e7eb;
+    border-bottom: 1px solid #e7e7eb;
+    background-color: #EEEEEE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto 20px auto;
+}
+
+.icon {
+    width: 32px;
+    height: 32px;
+    margin: 0 20px 0 20px;
+}
+
+.text-body {
+    margin: 0 10px 0 10px;
+}
+
+.list-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.thumbnail-container {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.thumbnail {
+    width: 40px;
+    height: 40px;
+}
+.progress-icon-container {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    left: 9px;
+    top: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.progress {
+    width: 32px;
+    height: 32px;
+    position: relative;
+}
+.wrapper-left {
+    width: 16px;
+    height: 32px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+.wrapper-right {
+    width: 16px;
+    height: 32px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+}
+.circle-left {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border-top: 4px solid #00E676;
+    border-left: 4px solid #00E676;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.circle-right {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border-top: 4px solid #00E676;
+    border-right: 4px solid #00E676;
+    border-left: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.hint-icon-container {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    left: 9px;
+    top: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hint-icon {
+    width: 32px;
+    height: 32px;
+}

@@ -1,0 +1,33 @@
+<!-- audioDetail.wxml -->
+<audio
+    src="{{url}}"
+    id="audio"
+    binderror="handleError"
+></audio>
+<view class="container">
+    <view class="header-container">
+        <view class="icon">
+            <image style="width:40px;height:40px;" src="{{imgURL}}"/>
+        </view>
+        <view>
+            <view class="name">{{name}}</view>
+        </view>
+    </view>
+    <view class="text-body">文件类型: {{type}}</view>
+    <view class="text-body">文件大小: {{size}} {{unit}}</view>
+    <view class="text-body">修改时间: {{time}}</view>
+</view>
+<view wx:if="{{playing}}" class=".hint">
+    <image
+        src="/asset/ic_pause_circle_outline_48px.svg"
+        catchtap="audioPause"
+        style="width:60px;height:60px;"
+    />
+</view>
+<view wx:else class=".hint">
+    <image
+        src="/asset/ic_play_circle_outline_48px.svg"
+        catchtap="audioPlay"
+        style="width:60px;height:60px;"
+    />
+</view>

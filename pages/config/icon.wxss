@@ -1,0 +1,40 @@
+/**icon.wxss**/
+.folder {
+    /*
+    background-image: url(/asset/icons.png);
+    background-position: left -412px;
+    background-repeat: no-repeat;
+    */
+    width: 32px;
+    height: 32px;
+}
+
+.txt {
+    /*
+    background-image: url(/asset/icons.png);
+    background-position: left -3880px;
+    background-repeat: no-repeat;
+    */
+    width: 32px;
+    height: 32px;
+}
+
+.pdf {
+    /*
+    background-image: url(/asset/pdf.png);
+    background-size: 32px 32px;
+    background-repeat: no-repeat;
+    */
+    width: 32px;
+    height: 32px;
+}
+
+.jpg {
+    /*
+    background-image: url(/asset/jpg.png);
+    background-size: 32px 32px;
+    background-repeat: no-repeat;
+    */
+    width: 32px;
+    height: 32px;
+}

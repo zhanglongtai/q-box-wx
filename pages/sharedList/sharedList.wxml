@@ -1,0 +1,43 @@
+<!--sharedList.wxml-->
+<import src="sharedItem.wxml"/>
+<!--loading page-->
+<view class="loading" wx:if="{{sharedList.isFetching}}">
+    <icon type="waiting" size="60" color="blue" style="margin: 0 0 30px 0"/>
+    <text>正在获取分享列表</text>
+</view>
+<block wx:else>
+    <block wx:if="{{sharedList.fetchSuccess}}">
+        <block wx:if="{{fileList.list.length !== 0}}">
+            <!--
+            <view class="menu">
+                <template is="breadcrumb" data="{{list: folderStack}}"/>
+                <view class="btn" style="position:absolute;right:0;" catchtap="handleSort">
+                    <image class="sort-icon" src="/asset/ic_sort_48px.svg"/>
+                </view>
+            </view>
+            <view wx:if="{{pulldownLv1 && !pulldownLv2}}" class="refresh-hint">继续下拉刷新</view>
+            <view wx:if="{{pulldownLv2}}" class="refresh-hint">松开后开始刷新</view>
+            -->
+            <scroll-view class="file-list" scroll-y bindscroll="updateList">
+                <view class="list-item" wx:for="{{sharedList.list}}" wx:key="{{name}}">
+                    <template is="sharedItem" data="{{item}}"/>
+                </view>
+            </scroll-view>
+        </block>
+        <view class="loading" wx:else>
+            <text>还未分享文件</text>
+        </view>
+    </block>
+    <!--error page-->
+    <view class="error-page" wx:else>
+        <view class="error-info">
+            <icon type="warn" size="{{60}}" color="red" style="margin: 0 0 20px 0"/>
+            <text>获取失败</text>
+        </view>
+        <button
+            type="primary"
+            catchtap="fetchSharedList"
+            style="width: 90%;"
+        >点击重试</button>
+    </view>
+</block>

@@ -1,0 +1,113 @@
+<!--sharedFolder.wxml-->
+<import src="commentItem.wxml"/>
+<import src="activityItem.wxml"/>
+<view class="info">
+    <view class="header-container">
+        <view class="icon">
+            <image style="width:40px;height:40px;" src="/asset/ic_group_48px_amber500.svg"/>
+        </view>
+        <view class="name">{{name}}</view>
+    </view>
+</view>
+<view class="tab">
+    <view wx:if="{{comment}}" class="selected-tab">评论</view>
+    <view wx:else class="default-tab" catchtap="changeToComment">评论</view>
+    <block wx:if="{{owner}}">
+        <view wx:if="{{settings}}" class="selected-tab">设置</view>
+        <view wx:else class="default-tab" catchtap="changeToSettings">设置</view>
+    </block>
+    <block wx:else>
+        <view wx:if="{{settings}}" class="selected-tab">查看</view>
+        <view wx:else class="default-tab" catchtap="changeToSettings">查看</view>
+    </block>
+</view>
+<block wx:if="{{comment}}">
+    <view class="loading" wx:if="{{commentList.isFetching}}">
+        <icon type="waiting" size="60" color="blue" style="margin: 0 0 30px 0"/>
+        <text>正在获取评论列表</text>
+    </view>
+    <block wx:else>
+        <block wx:if="{{commentList.fetchSuccess}}">
+            <block wx:if="{{commentList.list.length !== 0}}">
+                <view class="comment-item" wx:for="{{commentList.list}}" wx:key="{{time}}">
+                    <template is="commentItem" data="{{item}}"/>
+                </view>
+            </block>
+            <button
+                type="primary"
+                style="width: 90%;margin: 40px auto 10px auto;"
+                catchtap="addComment"
+            >添加评论</button>
+        </block>
+        <!--error page-->
+        <view class="error-page" wx:else>
+            <view class="error-info">
+                <icon type="warn" size="{{60}}" color="red" style="margin: 0 0 20px 0"/>
+                <text>获取失败</text>
+            </view>
+            <button
+                type="primary"
+                catchtap="fetchCommentList"
+                style="width: 90%;"
+            >点击重试</button>
+        </view>
+    </block>
+</block>
+<block wx:else>
+    <view class="loading" wx:if="{{checkList.isFetching}}">
+        <icon type="waiting" size="60" color="blue" style="margin: 0 0 30px 0"/>
+        <text>正在获取信息</text>
+    </view>
+    <block wx:else>
+        <block wx:if="{{commentList.fetchSuccess}}">
+            <view class="panel">
+                <view style="width:100%;height:20px;"/>
+                <view class="member">
+                    <view class="member-title">共享成员</view>
+                    <view class="member-list">
+                        <view class="member-icon">
+                            <image style="width: 40px;height: 40px;" src="/asset/ic_people_outline_48px.svg"/>
+                        </view>
+                        <view class="avatar-list" catchtap="navToGroup">
+                            <block wx:for="{{checkList.memberList}}" wx:key="{{name}}">
+                                <view class="avatar" wx:if="{{index < 5}}">
+                                    <image class="avatar-icon" src="{{item.avatarUrl}}"/>
+                                </view>
+                            </block>
+                        </view>
+                        <view class="avatar-action" catchtap="navToGroup">
+                            <image style="width: 32px;height: 32px;" src="/asset/ic_chevron_right_48px.svg"/>
+                        </view>
+                    </view>
+                </view>
+                <view style="width:100%;height:20px;"/>
+                <view class="activity">
+                    <view class="activity-title">近期操作</view>
+                    <block wx:for="{{checkList.activityList}}" wx:key="{{time}}">
+                        <template is="activityItem" data="{{item}}" />
+                    </block>
+                </view>
+                <view style="width:100%;height:20px;"/>
+            </view>
+        </block>
+        <!--error page-->
+        <view class="error-page" wx:else>
+            <view class="error-info">
+                <icon type="warn" size="{{60}}" color="red" style="margin: 0 0 20px 0"/>
+                <text>获取失败</text>
+            </view>
+            <button
+                type="primary"
+                catchtap="fetchCheckList"
+                style="width: 90%;"
+            >点击重试</button>
+        </view>
+    </block>
+</block>
+<view
+    class="float-icon"
+    data-name="{{name}}"
+    catchtap="handleNavToFolder"
+>
+    <image style="width:32px;height:32px;" src="/asset/ic_launch_48px.svg"/>
+</view>

@@ -1,0 +1,19 @@
+<!--appListItem.wxml-->
+<template name="appListItem">
+    <view
+        class="app-container"
+        data-name="{{item.name}}"
+        data-page="{{item.page}}"
+        catchtap="handleTapApp"
+    >
+        <view class="app-content">
+            <view class="app-icon-container">
+                <image class="app-icon" src="{{item.imgURL}}"/>
+            </view>
+            <view
+                class="app-text"
+            >{{item.name}}</view>
+        </view>
+        <view class="app-divider" wx:if="{{!item.end}}"/>
+    </view>
+</template>

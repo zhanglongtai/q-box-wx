@@ -1,0 +1,53 @@
+<!--appList.wxml-->
+<import src="appListItem.wxml"/>
+<template name="appList">
+    <view class="header">
+        <view class="avatar">
+            <image class="avatar-icon" src="{{avatarURL}}"/>
+        </view>
+        <view class="name">{{name}}</view>
+        <view class="vip">
+            <image
+                wx:if="{{vip}}"
+                class="vip-icon"
+                src="/asset/会员卡_激活.svg"
+            />
+            <image
+                wx:else
+                class="vip-icon"
+                src="/asset/会员卡_未激活.svg"
+            />
+        </view>
+    </view>
+    <view class="info-bar">
+        <view class="info-item">
+            <view class="info-icon-container">
+                <image class="info-icon" src="/asset/profile/ic_storage_48px.svg"/>
+            </view>
+            <view class="info-hint">200 MB</view>
+            <view class="info-text">剩余空间</view>
+        </view>
+        <view class="divider"/>
+        <view class="info-item">
+            <view class="info-icon-container">
+                <image class="info-icon" src="/asset/profile/余额宝.svg"/>
+            </view>
+            <view class="info-hint">20.00</view>
+            <view class="info-text">账户余额</view>
+        </view>
+        <view class="divider"/>
+        <view class="info-item">
+            <view class="info-icon-container">
+                <image class="info-icon" src="/asset/profile/ic_notifications_48px.svg"/>
+            </view>
+            <view class="info-hint">0</view>
+            <view class="info-text">未读信息</view>
+        </view>
+    </view>
+    <view style="width:100%;height:20px;background-color:rgb(235, 237, 240);"/>
+    <view class="app-list">
+        <block wx:for="{{selectedList}}" wx:key="{{name}}">
+            <template is="appListItem" data="{{item}}"/>
+        </block>
+    </view>
+</template>

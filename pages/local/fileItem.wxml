@@ -1,0 +1,14 @@
+<!--fileItem.wxml-->
+<template class="list-item" name="fileItem">
+    <view class="item-type">{{item.type}}</view>
+    <view class="item-info">
+        <view class="item-name">{{item.name}}</view>
+        <view class="item-size">{{item.type}} - {{item.size}} {{item.unit}}</view>
+    </view>
+    <view
+        class="item-action"
+        data-name="{{item.name}}"
+        data-type="{{item.type}}"
+        catchtap="handleTap"
+    >action</view>
+</template>

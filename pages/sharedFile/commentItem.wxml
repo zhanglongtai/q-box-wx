@@ -1,0 +1,11 @@
+<!--commentItem.wxml-->
+<template name="commentItem">
+    <view class="comment-head">
+        <view class="avatar">
+            <image class="comment-icon" src="{{item.avatarUrl}}"></image>
+        </view>
+        <view class="username">{{item.username}}</view>
+    </view>
+    <view class="comment-content">{{item.content}}</view>
+    <view class="comment-time">{{item.time}}</view>
+</template>

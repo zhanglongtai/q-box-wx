@@ -1,0 +1,63 @@
+<!--group.wxml-->
+<!--loading page-->
+<view class="loading" wx:if="{{checkList.isFetching}}">
+    <icon type="waiting" size="60" color="blue" style="margin: 0 0 30px 0"/>
+    <text>正在获取完整成员列表</text>
+</view>
+<block wx:else>
+    <block wx:if="{{checkList.fetchSuccess}}">
+        <view class="title">共享成员 ({{checkList.memberList.length + 1}}人)</view>
+        <view class="item-container">
+            <view class="avatar">
+                <image class="avatar-icon" src="{{checkList.owner.avatarUrl}}" />
+            </view>
+            <view class="tag">
+                <view class="tag-owner">所有者</view>
+            </view>
+            <view class="name">{{checkList.owner.username}}</view>
+        </view>
+        <block wx:for="{{checkList.memberList}}" wx:key="{{username}}">
+            <view class="item-container">
+                <view class="avatar">
+                    <image class="avatar-icon" src="{{item.avatarUrl}}" />
+                </view>
+                <view class="tag">
+                    <view class="tag-person">成员</view>
+                </view>
+                <view class="name">{{item.username}}</view>
+                <view class="action" wx:if="{{owner}}">
+                    <switch
+                        checked="{{!item.readOnly}}"
+                        bindchange="handleSwitch"
+                        data-username="{{item.username}}"
+                    />
+                    <view
+                        class="avatar"
+                        catchtap="deletePerson"
+                        data-username="{{item.username}}"
+                    >
+                        <image class="action-icon" src="/asset/ic_remove_circle_outline_48px_red500.svg" />
+                    </view>
+                </view>
+            </view>
+        </block>
+        <button
+            wx:if="{{owner}}"
+            type="primary"
+            open-type="share"
+            style="width: 90%;margin: 20px auto 20px auto;"
+        >添加成员</button>
+    </block>
+    <!--error page-->
+    <view class="error-page" wx:else>
+        <view class="error-info">
+            <icon type="warn" size="{{60}}" color="red" style="margin: 0 0 20px 0"/>
+            <text>获取失败</text>
+        </view>
+        <button
+            type="primary"
+            catchtap="fetchCheckList"
+            style="width: 90%;"
+        >点击重试</button>
+    </view>
+</block>

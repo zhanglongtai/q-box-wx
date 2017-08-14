@@ -1,0 +1,82 @@
+/**local.wxss**/
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loading {
+    width: 100%;
+    height: 700rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.file-list {
+    width: 750rpx;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #b2b2b2;
+}
+
+.list-item {
+    width: 740rpx;
+    height: 100px;
+    margin: 10px 0 10px 0;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+}
+
+.item-type {
+    width: 125rpx;
+    height: 125rpx;
+    font-size: 32px;
+    display: flex;
+    flexDirection: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-info {
+    width: 490rpx;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.item-name {
+    width: 490rpx;
+    height: 30px;
+    font-size: 20px;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+}
+
+.item-size {
+    width: 490rpx;
+    height: 30px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.item-action {
+    width: 125rpx;
+    height: 125rpx;
+    font-size: 18px;
+    display: flex;
+    flexDirection: column;
+    align-items: center;
+    justify-content: center;
+}
+

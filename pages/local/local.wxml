@@ -1,0 +1,28 @@
+<!--local.wxml-->
+<import src="fileItem.wxml"/>
+<view class="container">
+    <view class="loading" wx:if="{{fileList.isFetching}}">
+        <icon type="waiting" size="60" color="blue" />
+        <text>正在获取文件列表</text>
+    </view>
+    <view wx:else>
+        <view wx:if="{{fileList.fetchSuccess}}">
+            <block wx:if="{{fileList.list.length !== 0}}">
+                <scroll-view class="file-list" scroll-y bindscrolltoupper="upper">
+                    <block>
+                        <view class="list-item" wx:for="{{fileList.list}}" wx:key="{{name}}">
+                            <template is="fileItem" data="{{item}}"/>
+                        </view>
+                    </block>
+                </scroll-view>
+            </block>
+            <view class="loading" wx:else>
+                <text>本地未有文件</text>
+            </view>
+        </view>
+        <view class="loading" wx:else>
+            <icon type="warn" size="{{60}}" color="red" />
+            <text>正在获取文件列表</text>
+        </view>
+    </view>
+</view>

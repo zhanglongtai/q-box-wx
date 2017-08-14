@@ -1,0 +1,18 @@
+<!--activityItem.wxml-->
+<template name="activityItem">
+    <view class="activity-item">
+        <view class="activity-action-type">
+            <image style="width: 32px;height: 32px;" src="{{item.actionURL}}"/>
+        </view>
+        <view class="activity-body">
+            <view class="activity-head">
+                <view class="activity-avatar">
+                    <image class="activity-icon" src="{{item.avatarUrl}}"></image>
+                </view>
+                <view class="activity-username">{{item.username}}</view>
+                <view class="activity-time">{{item.time}}</view>
+            </view>
+            <view class="activity-content">{{item.content}}</view>
+        </view>
+    </view>
+</template>

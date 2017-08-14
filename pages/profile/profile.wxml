@@ -1,0 +1,13 @@
+<!--profile.wxml-->
+<import src="appList.wxml"/>
+<import src="appSetting.wxml"/>
+<template
+    wx:if="{{content === 'appList'}}"
+    is="appList"
+    data="{{name, avatarURL, selectedList}}"
+/>
+<template
+    wx:else
+    is="appSetting"
+    data="{{name, avatarURL, appList}}"
+/>

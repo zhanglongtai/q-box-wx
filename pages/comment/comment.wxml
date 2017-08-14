@@ -1,0 +1,23 @@
+<!--comment.wxml-->
+<view class="container">
+    <form bindsubmit="handleSubmit">
+        <view style="width: 100%;background-color: white;">
+            <textarea
+                placeholder="输入评论..."
+                auto-focus
+                name="textarea"
+                class="input"
+            />
+        </view>
+        <button
+            form-type="submit"
+            type="primary"
+            style="width: 90%;margin: 20px auto 20px auto;"
+        >提交</button>
+        <button
+            type="warn"
+            catchtap="navBack"
+            style="width: 90%;margin: 20px auto 20px auto;"
+        >取消返回</button>
+    </form>
+</view>

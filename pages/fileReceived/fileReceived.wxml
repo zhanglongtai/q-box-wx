@@ -1,0 +1,28 @@
+<!--fileReceived.wxml-->
+<view class="container">
+    <view class="header-container">
+        <view class="icon">
+            <image style="width:40px;height:40px;" src="{{imgURL}}"/>
+        </view>
+        <view>
+            <view class="name">{{name}}</view>
+        </view>
+    </view>
+    <view class="text-body">文件类型: {{type}}</view>
+    <view class="text-body">文件大小: {{size}} {{unit}}</view>
+    <view class="text-body">修改时间: {{time}}</view>
+</view>
+<block wx:if="{{downloading}}">
+    <view class="hint">正在打开文件: {{percent}}%</view>
+    <progress percent="{{percent}}" style="width: 80%;margin: auto;" />
+</block>
+<button
+    type="primary"
+    style="width: 90%;margin: 10px auto 10px auto;"
+    catchtap="handleCheck"
+    disabled="{{downloading}}"
+>查看文件</button>
+<button
+    style="width: 90%;margin: 10px auto 10px auto;"
+    disabled="{{downloading}}"
+>转存到我的云盘</button>

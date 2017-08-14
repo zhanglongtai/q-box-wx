@@ -1,0 +1,45 @@
+<!--sharedItem.wxml-->
+<template class="list-item" name="sharedItem">
+    <view class="item-type">
+        <image
+            wx:if="{{item.shared}}"
+            class="item-icon"
+            src="/asset/ic_share_48px_green500.svg"
+        />
+        <image
+            wx:else
+            class="item-icon"
+            src="/asset/ic_group_48px_amber500.svg"
+        />
+        <image
+            wx:if="{{item.owner}}"
+            class="owner-icon"
+            src="/asset/ic_security_48px_blueGrey500.svg"
+        />
+    </view>
+    <view class="item-info">
+        <view class="item-name">{{item.name}}</view>
+        <view class="item-other-info">
+            <view class="item-time">分享时间: {{item.sharedTime}}</view>
+        </view>
+    </view>
+    <view
+        class="item-action"
+        data-name="{{item.name}}"
+        data-type="{{item.type}}"
+        data-sharedtime="{{item.sharedTime}}"
+        catchtap="handleCancel"
+    >
+        <image class="item-icon" src="/asset/ic_cancel_48px_red500.svg" />
+    </view>
+    <view
+        class="item-action"
+        data-name="{{item.name}}"
+        data-type="{{item.type}}"
+        data-sharedtime="{{item.sharedTime}}"
+        data-owner="{{item.owner}}"
+        catchtap="handleGetMore"
+    >
+        <image class="item-icon" src="/asset/ic_chevron_right_48px.svg" />
+    </view>
+</template>

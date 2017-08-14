@@ -1,0 +1,18 @@
+<!--folderReceived.wxml-->
+<view class="container">
+    <view class="header-container">
+        <view class="icon">
+            <image style="width:40px;height:40px;" src="{{imgURL}}"/>
+        </view>
+        <view class="name">{{name}}</view>
+    </view>
+    <view class="text-body">{{owner}}与您分享了一个文件夹</view>
+</view>
+<!--
+<button
+    type="primary"
+    style="width: 90%;margin: 10px auto 10px auto;"
+    catchtap="handleCheck"
+>前往查看</button>
+-->
+<view style="width: 80%;margin: 10px auto 10px auto">点击右上角Home图标进入小程序查看</view>

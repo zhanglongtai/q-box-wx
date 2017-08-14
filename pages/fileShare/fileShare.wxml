@@ -1,0 +1,24 @@
+<!--fileShare.wxml-->
+<view class="container">
+    <view class="header-container">
+        <view class="icon">
+            <image style="width:40px;height:40px;" src="{{imgURL}}"/>
+        </view>
+        <view>
+            <view class="name">{{name}}</view>
+        </view>
+    </view>
+    <view class="text-body">文件类型: {{type}}</view>
+    <view class="text-body">文件大小: {{size}} {{unit}}</view>
+    <view class="text-body">修改时间: {{time}}</view>
+</view>
+<button
+    type="primary"
+    style="width: 90%;margin: 10px auto 10px auto;"
+    open-type="share"
+>分享给朋友</button>
+<button
+    type="warn"
+    style="width: 90%;margin: 10px auto 10px auto;"
+    catchtap="cancel"
+>取消返回</button>

@@ -1,0 +1,39 @@
+<!--breadcrumb.wxml-->
+<template name="breadcrumb">
+    <view class="breadcrumb">
+        <view
+            class="folder-name"
+            catchtap="handleNavRoot"
+        >
+            <image class="sort-icon" src="/asset/ic_home_48px.svg"/>
+        </view>
+        <block wx:if="{{list.length <= 3}}">
+            <block wx:for="{{list}}" wx:key="*this"  wx:for-item="folderName">
+                <image class="folder-chevron" src="/asset/ic_chevron_right_48px.png"/>
+                <view
+                    class="folder-name"
+                    data-index="{{index}}"
+                    catchtap="handleNavBackTo"
+                >{{folderName}}</view>
+            </block>
+        </block>
+        <block wx:else>
+            <image class="folder-chevron" src="/asset/ic_chevron_right_48px.png"/>
+            <view
+                class="folder-name"
+                data-index="{{list.length - 3}}"
+                catchtap="handleNavBackTo"
+            >...</view> 
+            <block wx:for="{{list}}" wx:key="*this"  wx:for-item="folderName">
+                <block wx:if="{{index > list.length - 3}}">
+                    <image class="folder-chevron" src="/asset/ic_chevron_right_48px.png"/>
+                    <view
+                        class="folder-name"
+                        data-index="{{index}}"
+                        catchtap="handleNavBackTo"
+                    >{{folderName}}</view>
+                </block>
+            </block>
+        </block>
+    </view>
+</template>

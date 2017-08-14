@@ -1,0 +1,89 @@
+<view class="title">选择上传</view>
+<view
+    class="container"
+    catchtap="addPhoto"
+>
+    <image class="icon" src="/asset/ic_photo_library_48px.svg" />
+    <view class="text-body">相册</view>
+</view>
+<block wx:if="{{uploadPhotoList.length !== 0}}">
+    <view class="list-container">
+        <block wx:for="{{uploadPhotoList}}" wx:key="{{imgPath}}">
+            <block wx:if="{{item.taskBegin}}">
+                <view class="thumbnail-container">
+                    <image class="thumbnail" src="{{item.imgPath}}" />
+                    <view class="progress-icon-container" wx:if="{{item.uploading}}">
+                        <view class="progress">
+                            <view class="wrapper-right">
+                                <view
+                                    class="circle-right"
+                                    style="transform: rotate({{item.rightDegree}}deg);"
+                                />
+                            </view>
+                            <view class="wrapper-left">
+                                <view
+                                    class="circle-left"
+                                    style="transform: rotate({{item.leftDegree}}deg);"
+                                />
+                            </view>
+                        </view>
+                    </view>
+                    <view class="hint-icon-container" wx:else>
+                        <image
+                            wx:if="{{item.success}}"
+                            class="hint-icon"
+                            src="/asset/ic_check_circle_48px_greenA400.svg"
+                        />
+                        <image
+                            wx:else
+                            class="hint-icon"
+                            src="/asset/ic_error_outline_48px_red400.svg"
+                        />
+                    </view>
+                </view>
+            </block>
+        </block>
+    </view>
+</block>
+<view
+    class="container"
+    catchtap="addVideo"
+>
+    <image class="icon" src="/asset/ic_video_library_48px.svg"/>
+    <view class="text-body">视频</view>
+</view>
+<view class="list-container">
+    <block wx:if="{{uploadVideo.taskBegin}}">
+        <view class="thumbnail-container">
+            <image class="thumbnail" src="{{uploadVideo.imgPath}}" />
+            <view class="progress-icon-container" wx:if="{{uploadVideo.uploading}}">
+                <view class="progress">
+                    <view class="wrapper-right">
+                        <view
+                            class="circle-right"
+                            style="transform: rotate({{uploadVideo.rightDegree}}deg);"
+                        />
+                    </view>
+                    <view class="wrapper-left">
+                        <view
+                            class="circle-left"
+                            style="transform: rotate({{uploadVideo.leftDegree}}deg);"
+                        />
+                    </view>
+                </view>
+            </view>
+            <view class="hint-icon-container" wx:else>
+                <image
+                    wx:if="{{uploadVideo.success}}"
+                    class="hint-icon"
+                    src="/asset/ic_check_circle_48px_greenA400.svg"
+                />
+                <image
+                    wx:else
+                    class="hint-icon"
+                    src="/asset/ic_error_outline_48px_red400.svg"
+                />
+            </view>
+        </view>
+    </block>
+</view>

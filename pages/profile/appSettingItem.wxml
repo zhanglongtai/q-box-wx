@@ -1,0 +1,31 @@
+<!--appSettingItem.wxml-->
+<template name="appSettingItem">
+    <view
+        class="app-container"
+        data-category="{{category}}"
+        data-name="{{item.name}}"
+        catchtap="handleSelect"
+    >
+        <view class="app-content">
+            <view class="app-icon-container">
+                <image class="app-icon" src="{{item.imgURL}}"/>
+            </view>
+            <view
+                class="app-text"
+            >{{item.name}}</view>
+        </view>
+        <view class="app-divider" wx:if="{{item.lineIndex !== 4}}"/>
+        <view
+            wx:if="{{item.selected}}"
+            class="app-selected"
+        >
+            <image class="app-selected-icon" src="/asset/profile/apps/ic_check_circle_48px_greenA400.svg"/>
+        </view>
+        <view
+            wx:else
+            class="app-unselected"
+        >
+            <image class="app-selected-icon" src="/asset/profile/apps/ic_check_circle_48px_grey400.svg"/>
+        </view>
+    </view>
+</template>

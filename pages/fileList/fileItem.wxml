@@ -1,0 +1,26 @@
+<!--fileItem.wxml-->
+<template class="list-item" name="fileItem">
+    <view class="item-type">
+        <image class="item-icon" src="{{item.imgURL}}"></image>
+    </view>
+    <view class="item-info">
+        <view class="item-name">{{item.name}}</view>
+        <view class="item-other-info">
+            <view class="item-time">{{item.time}}</view>
+            <view class="item-size">{{item.size}} {{item.unit}}</view>
+        </view>
+    </view>
+    <view
+        class="item-action"
+        data-name="{{item.name}}"
+        data-type="{{item.type}}"
+        data-size="{{item.size}}"
+        data-unit="{{item.unit}}"
+        data-time="{{item.time}}"
+        data-url="{{item.url}}"
+        data-imgURL="{{item.imgURL}}"
+        catchtap="handleAction"
+    >
+        <image class="item-icon" src="/asset/ic_more_horiz_48px.png" />
+    </view>
+</template>
