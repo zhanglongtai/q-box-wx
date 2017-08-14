@@ -1,0 +1,64 @@
+{
+    "pages": [
+        "pages/startScreen/startScreen",
+        "pages/fileList/fileList",
+        "pages/sharedList/sharedList",
+        "pages/device/device",
+        "pages/profile/profile",
+        "pages/local/local",
+        "pages/fileShare/fileShare",
+        "pages/fileDetail/fileDetail",
+        "pages/fileReceived/fileReceived",
+        "pages/folderReceived/folderReceived",
+        "pages/audioDetail/audioDetail",
+        "pages/videoDetail/videoDetail",
+        "pages/sharedFile/sharedFile",
+        "pages/sharedFolder/sharedFolder",
+        "pages/comment/comment",
+        "pages/group/group",
+        "pages/test/test"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#2962FF",
+        "navigationBarTitleText": "云轻传", 
+        "navigationBarTextStyle": "black",
+        "enablePullDownRefresh": false
+    },
+    "tabBar": {
+        "color": "#9E9E9E",
+        "selectedColor": "#2196F3",
+        "blackgroundColor": "#ffffff",
+        "list": [
+            {
+                "pagePath": "pages/fileList/fileList",
+                "text": "Qbox",
+                "iconPath": "./asset/ic_cloud_48px_grey500.png",
+                "selectedIconPath": "./asset/ic_cloud_48px_blue500.png"
+            },
+            {
+                "pagePath": "pages/sharedList/sharedList",
+                "text": "分享",
+                "iconPath": "./asset/ic_share_48px_grey500.png",
+                "selectedIconPath": "./asset/ic_share_48px_blue500.png"
+            },
+            {
+                "pagePath": "pages/device/device",
+                "text": "本地",
+                "iconPath": "./asset/ic_phone_iphone_48px_grey500.png",
+                "selectedIconPath": "./asset/ic_phone_iphone_48px_blue500.png"
+            },
+            {
+                "pagePath": "pages/profile/profile",
+                "text": "我的",
+                "iconPath": "./asset/ic_account_circle_48px_grey500.png",
+                "selectedIconPath": "./asset/ic_account_circle_48px_blue500.png"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 30000,
+        "uploadFile": 30000,
+        "downloadFile": 3000
+    }
+}
