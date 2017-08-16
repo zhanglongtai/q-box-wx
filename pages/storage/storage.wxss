@@ -1,0 +1,90 @@
+.title {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.pie {
+    width: 100%;
+    height: 290px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.pie-title {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14pt;
+    padding: 0 0 0 10px;
+}
+.pie-chart {
+    width: 250px;
+    height: 250px;
+}
+.pie-loading {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.pie-error {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.line {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.line-title {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14pt;
+    padding: 0 0 0 10px;
+}
+.line-picker {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14pt;
+    padding: 0 0 0 10px;
+    background-color: #f6f8f9;
+    border: 1px solid #e7e7eb;
+}
+.line-chart-container {
+    width: 100%;
+    width: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.line-chart {
+    width: 300px;
+    height: 200px;
+}
+.line-loading {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.line-error {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,68 @@
+<view style="width:100%;height:20px;background-color:rgb(235, 237, 240);"/>
+<view class="title">Qbox存储状态</view>
+<view class="pie">
+    <view class="pie-title">存储空间</view>
+    <!--loading-->
+    <view class="pie-loading" wx:if="{{pieChart.isFetching}}">
+        <icon type="waiting" size="60" color="blue" style="margin: 0 0 30px 0"/>
+        <text>正在获信息</text>
+    </view>
+    <block wx:else>
+        <!--success-->
+        <image
+            wx:if="{{pieChart.success}}"
+            class="pie-chart"
+            src="{{pieChart.imgURL}}"
+        />
+        <!--error-->
+        <view class="pie-error">
+            <icon type="warn" size="{{60}}" color="red" style="margin: 0 0 20px 0"/>
+            <text>获取失败</text>
+            <button
+                size="mini"
+                type="default"
+                catchtap="fetchPieChart"
+                style="width: 90%;margin: 10px 0 10px 0;"
+            >点击重试</button>
+        </view>
+    </block>
+</view>
+<view style="width:100%;height:20px;background-color:rgb(235, 237, 240);"/>
+<view class="line">
+    <view class="line-title">使用趋势</view>
+    <picker bindchange="chooseTimeRange" value="{{timeRangeIndex}}" range="{{timeRange}}">
+        <view class="line-picker">
+            选择时段: {{timeRange[timeRangeIndex]}}
+        </view>
+    </picker>
+    <!--loading-->
+    <view class="line-loading" wx:if="{{lineChart.isFetching}}">
+        <icon type="waiting" size="60" color="blue" style="margin: 0 0 30px 0"/>
+        <text>正在获取信息</text>
+    </view>
+    <block wx:else>
+        <!--success-->
+        <view
+            wx:if="{{lineChart.success}}"
+            style="line-chart-container">
+            <image class="line-chart" src="{{lineChart.imgURL}}"/>
+        </view>
+        <!--error-->
+        <view class="line-error">
+            <icon type="warn" size="{{60}}" color="red" style="margin: 0 0 20px 0"/>
+            <text>获取失败</text>
+            <button
+                size="mini"
+                type="default"
+                catchtap="fetchLineChart"
+                style="width: 60%;margin: 10px 0 10px 0;"
+            >点击重试</button>
+        </view>
+    </block>
+</view>
+<view style="width:100%;height:20px;background-color:rgb(235, 237, 240);"/>
+<button
+    style="width: 90%;margin: 20px auto 20px auto;"
+    type="primary"
+    catchtap="handleNavBack"
+>返回</button>

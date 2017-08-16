@@ -24,6 +24,14 @@ function uploadFile() {
     return `${COMMON_URL}/upload`;
 }
 
+function getPieChartURL() {
+    return `${COMMON_URL}/storage/pieChart`;
+}
+
+function getLineChartURL(timeRange) {
+    return `${COMMON_URL}/storage/lineChart/${timeRange}`;
+}
+
 export {
     COMMON_URL,
     getFileList,
@@ -32,4 +40,6 @@ export {
     getCommentList,
     addComment,
     uploadFile,
+    getPieChartURL,
+    getLineChartURL,
 };

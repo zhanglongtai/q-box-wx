@@ -135,6 +135,15 @@ Page({
             },
         });
     },
+    handleInfo: function (event) {
+        const info = event.currentTarget.dataset.info;
+        wx.navigateTo({
+            url: `/pages/${info}/${info}`,
+            success: () => {
+                console.log(`nav to ${info}`);
+            },
+        });
+    },
     handleTapApp: function (event) {
         const page = event.currentTarget.dataset.page;
         switch (page) {
@@ -143,7 +152,7 @@ Page({
                 wx.navigateTo({
                     url: `/pages/${page}/${page}`,
                     success: () => {
-                        console.log('nav to search');
+                        console.log(`nav to ${page}`);
                     },
                 });
                 break;

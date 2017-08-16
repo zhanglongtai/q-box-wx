@@ -20,7 +20,11 @@
         </view>
     </view>
     <view class="info-bar">
-        <view class="info-item">
+        <view
+            class="info-item"
+            data-info="storage"
+            catchtap="handleInfo"
+        >
             <view class="info-icon-container">
                 <image class="info-icon" src="/asset/profile/ic_storage_48px.svg"/>
             </view>
@@ -28,7 +32,11 @@
             <view class="info-text">剩余空间</view>
         </view>
         <view class="divider"/>
-        <view class="info-item">
+        <view
+            class="info-item"
+            data-info="storage"
+            catchtap="handleInfo"
+        >
             <view class="info-icon-container">
                 <image class="info-icon" src="/asset/profile/余额宝.svg"/>
             </view>
@@ -36,7 +44,11 @@
             <view class="info-text">账户余额</view>
         </view>
         <view class="divider"/>
-        <view class="info-item">
+        <view
+            class="info-item"
+            data-info="storage"
+            catchtap="handleInfo"
+        >
             <view class="info-icon-container">
                 <image class="info-icon" src="/asset/profile/ic_notifications_48px.svg"/>
             </view>
