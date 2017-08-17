@@ -6,12 +6,12 @@ Page({
         timeRangeIndex: 0,
         pieChart: {
             isFetching: true,
-            success: false,
+            fetchSuccess: false,
             imgURL: '',
         },
         lineChart: {
             isFetching: true,
-            success: false,
+            fetchSuccess: false,
             imgURL: '',
         },
     },

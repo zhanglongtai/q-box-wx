@@ -10,12 +10,12 @@
     <block wx:else>
         <!--success-->
         <image
-            wx:if="{{pieChart.success}}"
+            wx:if="{{pieChart.fetchSuccess}}"
             class="pie-chart"
             src="{{pieChart.imgURL}}"
         />
         <!--error-->
-        <view class="pie-error">
+        <view class="pie-error" wx:else>
             <icon type="warn" size="{{60}}" color="red" style="margin: 0 0 20px 0"/>
             <text>获取失败</text>
             <button
@@ -43,12 +43,12 @@
     <block wx:else>
         <!--success-->
         <view
-            wx:if="{{lineChart.success}}"
+            wx:if="{{lineChart.fetchSuccess}}"
             style="line-chart-container">
             <image class="line-chart" src="{{lineChart.imgURL}}"/>
         </view>
         <!--error-->
-        <view class="line-error">
+        <view class="line-error" wx:else>
             <icon type="warn" size="{{60}}" color="red" style="margin: 0 0 20px 0"/>
             <text>获取失败</text>
             <button

@@ -16,7 +16,9 @@
         "pages/sharedFolder/sharedFolder",
         "pages/comment/comment",
         "pages/group/group",
-        "pages/test/test"
+        "pages/test/test",
+        "pages/storage/storage",
+        "pages/payment/payment"
     ],
     "window": {
         "backgroundTextStyle": "light",

@@ -1,10 +1,23 @@
-// app.js
+// import { getOpenid } from './pages/API/api';
+
 App({
-    onLaunch: function() {
-        // 调用API从本地缓存中获取数据
-        const logs = wx.getStorageSync('logs') || [];
-        logs.unshift(Date.now());
-        wx.setStorageSync('logs', logs);
+    onLaunch: () => {
+        wx.checkSession({
+            success: () => {
+                console.log('session unexpired');
+            },
+            fail: () => {
+                wx.login({
+                    success: (res) => {
+                        if (res.code) {
+                            console.log('登录成功');
+                        } else {
+                            console.log(`获取用户登录态失败！${res.errMsg}`);
+                        }
+                    },
+                });
+            },
+        });
     },
     getUserInfo: function(cb) {
         const that = this;

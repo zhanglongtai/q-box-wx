@@ -1,0 +1,46 @@
+<view class="balance-container">
+    <view class="balance-title">账户余额</view>
+    <view class="balance" wx:if="{{balance.isFetching}}">正在获取</view>
+    <block wx:else>
+        <view class="balance" wx:if="{{balance.fetchSuccess}}">￥{{balance.value}}</view>
+        <view class="balance" wx:else catchtap="fetchBalance">点击重试</view>
+    </block>
+</view>
+<view class="balance-container">
+    <view class="balance-title">本月消费</view>
+    <view class="balance" wx:if="{{usage.isFetching}}">正在获取</view>
+    <block wx:else>
+        <view class="balance" wx:if="{{usage.fetchSuccess}}">￥-{{usage.value}}</view>
+        <view class="balance" wx:else catchtap="fetchUsage">点击重试</view>
+    </block>
+</view>
+<view class="charge-container">
+    <view class="charge-title">充值</view>
+    <view class="charge-payment-container">
+        <view>选择充值金额</view>
+        <picker bindchange="chooseCharge" value="{{chargeIndex}}" range="{{charge}}">
+            <view class="charge-payment">
+                <view class="charge-payment-amount">{{charge[chargeIndex]}}</view>
+                <image
+                    class="charge-payment-expand"
+                    src="/asset/profile/ic_expand_more_48px.svg"
+                />
+            </view>
+        </picker>
+    </view>
+    <button
+        style="width: 90%;margin: 20px auto 20px auto;"
+        type="primary"
+        catchtap="handlePay"
+    >确认</button>
+</view>
+<view class="bill-container" catchtap="navToBill">
+    <image class="bill-icon" src="/asset/profile/ic_assignment_48px.svg"/>
+    <view>查看历史账单</view>
+    <image class="bill-expand" src="/asset/profile/ic_chevron_right_48px.svg"/>
+</view>
+<button
+    style="width: 90%;margin: 20px auto 20px auto;"
+    type="primary"
+    catchtap="handleNavBack"
+>返回</button>
