@@ -1,0 +1,17 @@
+<!--billListItem.wxml-->
+<template name="billListItem">
+    <view class="bill-list-item">
+        <view class="bill-list-item-body">
+            <view class="bill-list-item-time">{{item.time}}</view>
+            <view class="bill-list-item-text">{{item.text}}</view>
+        </view>
+        <view
+            wx:if="{{item.type === 'charge'}}"
+            class="bill-list-item-charge"
+        >{{item.amount}}</view>
+        <view
+            wx:else
+            class="bill-list-item-consume"
+        >{{item.amount}}</view>
+    </view>
+</template>

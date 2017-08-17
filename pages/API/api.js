@@ -51,7 +51,7 @@ function getPaymentArgs() {
 }
 
 function getBillList(userid) {
-    return `${COMMON_URL}/usage/${userid}`;
+    return `${COMMON_URL}/billList/${userid}`;
 }
 
 export {

@@ -1,0 +1,102 @@
+page {
+    background-color: #e2e3e4;
+}
+
+.section {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+.section-title {
+    width: 90%;
+    height: 40px;
+    margin: 0 0 0 10px;
+    line-height: 40px;
+}
+.section-picker {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.section-picker-text {
+    width: 100px;
+    height: 40px;
+    margin: 10px;
+    line-height: 40px;
+}
+.section-picker-month {
+    width: 100px;
+    height: 40px;
+    margin: 10px 10px 10px 20px;
+    line-height: 40px;
+    color: green;
+}
+
+.loading {
+    width:100%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.error-page {
+    width: 100%;
+    height: 60vh;
+}
+.error-info {
+    width: 90%;
+    height: 300px;
+    margin: 0 auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bill-list {
+    width: 100%;
+    background-color: white;
+}
+.bill-list-item {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #ddd;
+}
+.bill-list-item-body {
+    width: 200px;
+    height: 50px;
+    margin: 0 10px 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.bill-list-item-time {
+    width: 200px;
+    height: 25px;
+    line-height: 25px;
+}
+.bill-list-item-text {
+    width: 200px;
+    height: 25px;
+    line-height: 25px;
+}
+.bill-list-item-charge {
+    width: 70px;
+    height: 32px;
+    line-height: 32px;
+    margin: auto 10px auto 10px;
+    color: green;
+}
+.bill-list-item-consume {
+    width: 70px;
+    height: 32px;
+    line-height: 32px;
+    margin: auto 10px auto 10px;
+    color: red;
+}
