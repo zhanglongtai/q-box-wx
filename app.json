@@ -18,7 +18,8 @@
         "pages/group/group",
         "pages/test/test",
         "pages/storage/storage",
-        "pages/payment/payment"
+        "pages/payment/payment",
+        "pages/bill/bill"
     ],
     "window": {
         "backgroundTextStyle": "light",

@@ -34,10 +34,22 @@
                     wx:key="{{time}}"
                 />
             </view>
+            <button
+                style="width: 90%;margin: 20px auto 20px auto;"
+                type="primary"
+                catchtap="handleNavBack"
+            >返回</button>
         </block>
-        <view class="loading" wx:else>
-            <text>本月未有消费</text>
-        </view>
+        <block  wx:else>
+            <view class="loading">
+                <text>本月未有消费</text>
+            </view>
+            <button
+                style="width: 90%;margin: 20px auto 20px auto;"
+                type="primary"
+                catchtap="handleNavBack"
+            >返回</button>
+        </block>
     </block>
     <!--error page-->
     <view class="error-page" wx:else>
@@ -50,10 +62,10 @@
             catchtap="fetchBillList"
             style="width: 90%;"
         >点击重试</button>
+        <button
+            style="width: 90%;margin: 20px auto 20px auto;"
+            type="default"
+            catchtap="handleNavBack"
+        >返回</button>
     </view>
 </block>
-<button
-    style="width: 90%;margin: 20px auto 20px auto;"
-    type="primary"
-    catchtap="handleNavBack"
->返回</button>
