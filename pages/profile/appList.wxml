@@ -46,7 +46,7 @@
         <view class="divider"/>
         <view
             class="info-item"
-            data-info="storage"
+            data-info="inform"
             catchtap="handleInfo"
         >
             <view class="info-icon-container">

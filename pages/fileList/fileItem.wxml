@@ -1,5 +1,5 @@
 <!--fileItem.wxml-->
-<template class="list-item" name="fileItem">
+<template name="fileItem">
     <view class="item-type">
         <image class="item-icon" src="{{item.imgURL}}"></image>
     </view>
