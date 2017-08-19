@@ -541,6 +541,65 @@ app.get('/billList/:id', (request, response) => {
     }
 });
 
+app.get('/message', (request, response) => {
+    const data = {
+        list: [
+            {
+                unread: true,
+                time: '2017-08-19 10:54',
+                title: '消息主题',
+                content: '消息内容',
+            },
+            {
+                unread: true,
+                time: '2017-08-18 10:54',
+                title: '消息主题',
+                content: '消息内容',
+            },
+            {
+                unread: false,
+                time: '2017-08-10 10:00',
+                title: '消息主题',
+                content: '消息内容',
+            },
+            {
+                unread: false,
+                time: '2017-08-09 10:00',
+                title: '消息主题',
+                content: '消息内容',
+            },
+            {
+                unread: false,
+                time: '2017-08-08 10:00',
+                title: '消息主题',
+                content: '消息内容',
+            },
+        ],
+    };
+
+    // 0 --- return a error status
+    // 1 --- return a empty list
+    // 2 --- return a normal list
+    // 3 --- don't return a response
+    const testCode = 2;
+    switch (testCode) {
+        case 0:
+            response.status(401).end();
+            break;
+        case 1:
+            response.json({ list: [] });
+            break;
+        case 2:
+            response.json(data);
+            break;
+        case 3:
+            console.log('holding');
+            break;
+        default:
+            break;
+    }
+});
+
 app.listen(app.get('port'), () => {
     console.log(`Server started: http://localhost:${app.get('port')}/`);
 });
