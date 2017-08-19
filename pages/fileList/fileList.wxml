@@ -11,11 +11,6 @@
     <block wx:if="{{fileList.fetchSuccess}}">
         <block wx:if="{{fileList.list.length !== 0}}">
             <view class="menu">
-               <!--
-            　　<view class="btn" catchtap="handleNavBack">
-                    <image class="sort-icon" src="/asset/ic_file_upload_48px.png"/>
-                </view>
-                -->
                 <template is="breadcrumb" data="{{list: folderStack}}"/>
                 <view class="btn" style="position:absolute;right:0;" catchtap="handleSort">
                     <image class="sort-icon" src="/asset/ic_sort_48px.svg"/>

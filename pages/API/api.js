@@ -54,6 +54,10 @@ function getBillList(userid) {
     return `${COMMON_URL}/billList/${userid}`;
 }
 
+function getMessageList() {
+    return `${COMMON_URL}/message`;
+}
+
 export {
     COMMON_URL,
     getOpenid,
@@ -69,4 +73,5 @@ export {
     getUsage,
     getPaymentArgs,
     getBillList,
+    getMessageList,
 };

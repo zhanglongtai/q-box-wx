@@ -44,7 +44,7 @@
         <!--success-->
         <view
             wx:if="{{lineChart.fetchSuccess}}"
-            style="line-chart-container">
+            class="line-chart-container">
             <image class="line-chart" src="{{lineChart.imgURL}}"/>
         </view>
         <!--error-->

@@ -1,3 +1,5 @@
+import { getMessageList } from '../API/api';
+
 Page({
     data: {
         name: '',
@@ -121,6 +123,12 @@ Page({
             end: false,
             page: 'appSetting',
         },
+        messageList: {
+            isFetching: true,
+            fetchSuccess: false,
+            list: '',
+        },
+        unread: 0,
     },
     onLoad: function () {
         wx.getUserInfo({
@@ -134,6 +142,8 @@ Page({
                 });
             },
         });
+
+        this.fetchMessageList();
     },
     handleInfo: function (event) {
         const info = event.currentTarget.dataset.info;
@@ -298,5 +308,95 @@ Page({
                 break;
             }
         }
+    },
+    fetchMessageList: function () {
+        // begin to show async status
+        this.setData({
+            messageList: {
+                isFetching: true,
+                fetchSuccess: false,
+                list: this.data.messageList.list.slice(),
+            },
+            unread: 0,
+        });
+
+        // begin async request
+        const requestURL = getMessageList();
+        wx.request({
+            url: requestURL,
+            header: {
+                'content-type': 'application/json',
+            },
+            success: (res) => {
+                switch (res.statusCode) {
+                    case 200: {
+                        const newList = (
+                            res.data.list.length === this.data.messageList.list.length
+                            ?
+                            this.data.messageList.list.length.slice()
+                            :
+                            res.data.list.slice()
+                        );
+
+                        let unread = 0;
+                        for (let i = 0; i < newList.length; i++) {
+                            if (!newList[i].ready) {
+                                unread += 1;
+                            }
+                        }
+
+                        this.setData({
+                            messageList: {
+                                isFetching: false,
+                                fetchSuccess: true,
+                                list: newList,
+                            },
+                            unread,
+                        });
+
+                        break;
+                    }
+                    case 401: {
+                        this.setData({
+                            messageList: {
+                                isFetching: false,
+                                fetchSuccess: false,
+                                list: [],
+                            },
+                            unread: 0,
+                        });
+
+                        break;
+                    }
+                    case 502: {
+                        this.setData({
+                            messageList: {
+                                isFetching: false,
+                                fetchSuccess: false,
+                                list: [],
+                            },
+                            unread: 0,
+                        });
+
+                        break;
+                    }
+                    default:
+                        console.log(res);
+                        break;
+                }
+            },
+            fail: (res) => {
+                console.log(res);
+
+                this.setData({
+                    messageList: {
+                        isFetching: false,
+                        fetchSuccess: false,
+                        list: [],
+                    },
+                    unread: 0,
+                });
+            },
+        });
     },
 });

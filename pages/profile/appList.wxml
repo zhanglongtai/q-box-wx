@@ -46,13 +46,13 @@
         <view class="divider"/>
         <view
             class="info-item"
-            data-info="inform"
+            data-info="message"
             catchtap="handleInfo"
         >
             <view class="info-icon-container">
                 <image class="info-icon" src="/asset/profile/ic_notifications_48px.svg"/>
             </view>
-            <view class="info-hint">0</view>
+            <view class="info-hint">{{unread}}</view>
             <view class="info-text">未读信息</view>
         </view>
     </view>

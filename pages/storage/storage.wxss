@@ -63,7 +63,7 @@
 }
 .line-chart-container {
     width: 100%;
-    width: 200;
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -71,9 +71,6 @@
 .line-chart {
     width: 300px;
     height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 .line-loading {
     width: 100%;
