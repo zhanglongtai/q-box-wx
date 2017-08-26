@@ -1,3 +1,5 @@
+import { getMessageList } from '../API/api';
+
 Page({
     data: {
         messageList: {
@@ -9,13 +11,35 @@ Page({
     onLoad: function () {
         this.fetchMessageList();
     },
-    handleTap: function () {
+    onShow: function () {
+        this.fetchMessageList();
+    },
+    handleTap: function (event) {
+        const { unread } = event.currentTarget.dataset;
+        const msgID = event.currentTarget.dataset.msgid;
+
         wx.navigateTo({
-            url: '/pages/messageDetail/messageDetail',
+            url: `/pages/messageDetail/messageDetail?msgID=${msgID}`,
             success: () => {
                 console.log('nav to messageItem');
             },
         });
+        if (unread === 'true') {
+            const messageList = this.data.messageList.list.slice();
+            for (let i = 0; i < messageList.length; i++) {
+                if (messageList[i].msgID === msgID) {
+                    messageList[i].unread = false;
+                }
+            }
+
+            this.setData({
+                messageList: {
+                    isFetching: false,
+                    fetchSuccess: true,
+                    list: messageList,
+                },
+            });
+        }
     },
     fetchMessageList: function () {
         // begin to show async status
@@ -23,7 +47,7 @@ Page({
             messageList: {
                 isFetching: true,
                 fetchSuccess: false,
-                list: this.data.messageList.list.slice(),
+                list: [],
             },
         });
 
@@ -37,13 +61,7 @@ Page({
             success: (res) => {
                 switch (res.statusCode) {
                     case 200: {
-                        const newList = (
-                            res.data.list.length === this.data.messageList.list.length
-                            ?
-                            this.data.messageList.list.length.slice()
-                            :
-                            res.data.list.slice()
-                        );
+                        const newList = res.data.list.slice();
 
                         this.setData({
                             messageList: {

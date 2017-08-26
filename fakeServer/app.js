@@ -542,37 +542,56 @@ app.get('/billList/:id', (request, response) => {
 });
 
 app.get('/message', (request, response) => {
+    function getImgURL(msgType) {
+        return `/asset/profile/message/${msgType}.svg`;
+    }
+
     const data = {
         list: [
             {
                 unread: true,
+                msgID: 1,
                 time: '2017-08-19 10:54',
                 title: '消息主题',
-                content: '消息内容',
+                content: '长信息测试长信息测试长信息测试长信息测试长信息测试长信息测试长信息测试长信息测试长信息测试长信息测试长信息测试长信息测试',
+                type: 'system',
+                imgURL: getImgURL('system'),
             },
             {
                 unread: true,
+                msgID: 2,
                 time: '2017-08-18 10:54',
                 title: '消息主题',
                 content: '消息内容',
+                type: 'modify',
+                imgURL: getImgURL('modify'),
             },
             {
                 unread: false,
+                msgID: 3,
                 time: '2017-08-10 10:00',
                 title: '消息主题',
                 content: '消息内容',
+                type: 'comment',
+                imgURL: getImgURL('comment'),
             },
             {
                 unread: false,
+                msgID: 4,
                 time: '2017-08-09 10:00',
                 title: '消息主题',
                 content: '消息内容',
+                type: 'charge',
+                imgURL: getImgURL('charge'),
             },
             {
                 unread: false,
+                msgID: 5,
                 time: '2017-08-08 10:00',
                 title: '消息主题',
                 content: '消息内容',
+                type: 'lottery',
+                imgURL: getImgURL('lottery'),
             },
         ],
     };

@@ -19,7 +19,9 @@
         "pages/test/test",
         "pages/storage/storage",
         "pages/payment/payment",
-        "pages/bill/bill"
+        "pages/bill/bill",
+        "pages/message/message",
+        "pages/messageDetail/messageDetail"
     ],
     "window": {
         "backgroundTextStyle": "light",

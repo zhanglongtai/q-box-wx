@@ -145,6 +145,9 @@ Page({
 
         this.fetchMessageList();
     },
+    onShow: function () {
+        this.fetchMessageList();
+    },
     handleInfo: function (event) {
         const info = event.currentTarget.dataset.info;
         wx.navigateTo({
@@ -315,7 +318,7 @@ Page({
             messageList: {
                 isFetching: true,
                 fetchSuccess: false,
-                list: this.data.messageList.list.slice(),
+                list: [],
             },
             unread: 0,
         });
@@ -330,17 +333,11 @@ Page({
             success: (res) => {
                 switch (res.statusCode) {
                     case 200: {
-                        const newList = (
-                            res.data.list.length === this.data.messageList.list.length
-                            ?
-                            this.data.messageList.list.length.slice()
-                            :
-                            res.data.list.slice()
-                        );
+                        const newList = res.data.list.slice();
 
                         let unread = 0;
                         for (let i = 0; i < newList.length; i++) {
-                            if (!newList[i].ready) {
+                            if (!newList[i].unread) {
                                 unread += 1;
                             }
                         }

@@ -1,0 +1,21 @@
+<!--messageItem.wxml-->
+<template name="messageItem">
+    <view
+        class="message-item"
+        catchtap="handleTap"
+        data-msgid="{{item.msgID}}"
+        data-unread="{{item.unread}}"
+    >
+        <view class="message-type">
+            <image class="message-icon" src="{{item.imgURL}}"></image>
+        </view>
+        <view class="message-info">
+            <view class="message-title">{{item.title}}</view>
+            <view class="message-content">{{item.content}}</view>
+        </view>
+        <view class="message-action">
+            <image class="message-icon" src="/asset/profile/ic_chevron_right_48px.svg" />
+        </view>
+        <view wx:if="{{!item.unread}}" class="message-read-effect"/>
+    </view>
+</template>

@@ -1,0 +1,32 @@
+<!--message.wxml-->
+<import src="messageItem"/>
+<view class="title">消息</view>
+<!--loading page-->
+<view class="loading" wx:if="{{messageList.isFetching}}">
+    <icon type="waiting" size="60" color="blue" style="margin: 0 0 30px 0"/>
+    <text>正在获取信息列表</text>
+</view>
+<block wx:else>
+    <block wx:if="{{messageList.fetchSuccess}}">
+        <block wx:if="{{fileList.list.length !== 0}}">
+            <block wx:for="{{messageList.list}}" wx:key="{{time}}">
+                <template is="messageItem" data="{{item}}"/>
+            </block>
+        </block>
+        <view class="loading" wx:else>
+            <text>未有信息</text>
+        </view>
+    </block>
+    <!--error page-->
+    <view class="error-page" wx:else>
+        <view class="error-info">
+            <icon type="warn" size="{{60}}" color="red" style="margin: 0 0 20px 0"/>
+            <text>获取失败</text>
+        </view>
+        <button
+            type="primary"
+            catchtap="fetchMessageList"
+            style="width: 90%;"
+        >点击重试</button>
+    </view>
+</block>

@@ -4,7 +4,7 @@
 <template
     wx:if="{{content === 'appList'}}"
     is="appList"
-    data="{{name, avatarURL, selectedList}}"
+    data="{{name, avatarURL, selectedList, unread}}"
 />
 <template
     wx:else
